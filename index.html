@@ -65,8 +65,8 @@
 
 .logo {
     display: flex;
-    align-items: center; /* يجعل اللوجو والنص على استقامة واحدة عرضياً */
-    gap: 15px; /* يتحكم في المسافة بين صورة اللوجو وبين اسم المطعم */
+    align-items: center;
+    gap: 15px;
     text-decoration: none;
 }
   .logo-icon img {
@@ -119,21 +119,6 @@
 
   .nav-links a:hover { color: var(--brown); }
   .nav-links a:hover::after { width: 100%; }
-
-  .nav-cta {
-    background: linear-gradient(135deg, var(--gold), var(--brown-mid));
-    color: white !important;
-    padding: 10px 22px;
-    border-radius: 50px;
-    font-weight: 700;
-    box-shadow: 0 4px 15px var(--shadow-gold);
-    transition: all 0.3s !important;
-  }
-
-  .nav-cta:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px var(--shadow-gold) !important;
-  }
 
   .hamburger {
     display: none;
@@ -791,25 +776,25 @@
   }
 
   .loc-text h4 { font-family: 'Cairo', sans-serif; font-weight: 700; margin-bottom: 4px; color: var(--brown); }
-  .loc-text p { font-size: 14px; color: var(--text-muted); }
+  .loc-text p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
 
-  .map-link {
+  .map-link-inline {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     background: linear-gradient(135deg, var(--gold), var(--brown-mid));
     color: white;
-    padding: 14px 28px;
+    padding: 8px 16px;
     border-radius: 50px;
     font-weight: 700;
-    font-size: 15px;
+    font-size: 13px;
     text-decoration: none;
-    box-shadow: 0 6px 20px var(--shadow-gold);
+    box-shadow: 0 4px 12px var(--shadow-gold);
     transition: all 0.3s;
     margin-top: 10px;
   }
 
-  .map-link:hover { transform: translateY(-3px); box-shadow: 0 12px 30px var(--shadow-gold); }
+  .map-link-inline:hover { transform: translateY(-2px); box-shadow: 0 8px 20px var(--shadow-gold); }
 
   /* FOOTER */
   footer {
@@ -822,7 +807,7 @@
     max-width: 1100px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr;
     gap: 50px;
     margin-bottom: 40px;
   }
@@ -844,17 +829,20 @@
   }
 
   .social-link {
-    width: 40px;
     height: 40px;
+    padding: 0 14px;
     border-radius: 12px;
     background: rgba(255,255,255,0.08);
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 13px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.7);
     border: 1px solid rgba(200,151,58,0.2);
     transition: all 0.3s;
+    letter-spacing: 0.5px;
   }
 
   .social-link:hover {
@@ -1007,7 +995,6 @@
   <a href="#menu" onclick="toggleMenu()">المنيو</a>
   <a href="#reviews" onclick="toggleMenu()">التقييمات</a>
   <a href="#location" onclick="toggleMenu()">فروعنا</a>
-  <a href="https://wa.me/9660538071170" onclick="toggleMenu()" style="color:var(--gold)" target="_blank">واتساب 💬</a>
 </div>
 
 <nav id="navbar">
@@ -1025,7 +1012,6 @@
     <li><a href="#menu">المنيو</a></li>
     <li><a href="#reviews">التقييمات</a></li>
     <li><a href="#location">فروعنا</a></li>
-    <li><a href="https://wa.me/9660538071170" class="nav-cta" target="_blank">واتساب 💬</a></li>
   </ul>
   <div class="hamburger" onclick="toggleMenu()">
     <span></span><span></span><span></span>
@@ -1050,8 +1036,8 @@
         تفطيرة مش بس وجبة — هي تجربة تبدأ صباحك صح.
       </p>
       <div class="hero-btns">
-        <a href="https://wa.me/9660538071170" class="btn-primary" target="_blank">💬 واتساب</a>
-        <a href="#menu" class="btn-secondary">شوف المنيو 📋</a>
+        <a href="#menu" class="btn-primary">شوف المنيو 📋</a>
+        <a href="#location" class="btn-secondary">📍 فروعنا</a>
       </div>
       <div class="hero-stats">
         <div class="stat-item">
@@ -1257,7 +1243,7 @@
   <div class="location-inner">
     <div class="location-map reveal">
       <span class="map-placeholder-icon">📍</span>
-      <span class="map-placeholder-text">تفطيرة — ممشى التنعيم</span>
+      <span class="map-placeholder-text">تفطيرة — 4 فروع في مكة</span>
       <span class="map-placeholder-sub">مكة المكرمة، المملكة العربية السعودية</span>
     </div>
     <div class="location-details reveal">
@@ -1266,6 +1252,7 @@
         <div class="loc-text">
           <h4>فرع الزايدي</h4>
           <p>مكة المكرمة - الزايدي<br>بجوار مطعم التشكف المنر | 0569154120</p>
+          <a href="https://maps.app.goo.gl/5H9GdV2KL2A8gyPT9" class="map-link-inline" target="_blank">📍 الموقع على الخريطة</a>
         </div>
       </div>
       <div class="location-item">
@@ -1273,18 +1260,25 @@
         <div class="loc-text">
           <h4>فرع المعيصم</h4>
           <p>مكة المكرمة - المعيصم<br>محطة درب | 0544489648</p>
+          <a href="https://maps.app.goo.gl/cWhPYAXB4YTckF2q7" class="map-link-inline" target="_blank">📍 الموقع على الخريطة</a>
         </div>
       </div>
       <div class="location-item">
         <div class="loc-icon">📍</div>
         <div class="loc-text">
-          <h4>فرع البحيرات</h4>
+          <h4>فرع البحيرات — ممشى التنعيم</h4>
           <p>مكة المكرمة - البحيرات<br>أمام ممشى التنعيم | 0538071170</p>
+          <a href="https://maps.app.goo.gl/CRKj825BXanGsqpM6" class="map-link-inline" target="_blank">📍 الموقع على الخريطة</a>
         </div>
       </div>
-      <a href="https://maps.google.com" class="map-link" target="_blank">
-        📍 اذهب للموقع
-      </a>
+      <div class="location-item">
+        <div class="loc-icon">📍</div>
+        <div class="loc-text">
+          <h4>فرع النوارية</h4>
+          <p>مكة المكرمة - النوارية<br>0549464011</p>
+          <a href="https://maps.app.goo.gl/ykncaov5ZTZZzcDS9" class="map-link-inline" target="_blank">📍 الموقع على الخريطة</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1306,9 +1300,10 @@
         تقييم 4.8 من أكثر من 700 عميل راضي.
       </p>
       <div class="social-links">
-        <a href="#" class="social-link">🎵</a>
-        <a href="#" class="social-link">📸</a>
-        <a href="#" class="social-link">🐦</a>
+        <a href="https://www.instagram.com/tuftirah?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="social-link" target="_blank" title="انستقرام">Instagram</a>
+        <a href="https://www.tiktok.com/@tuftirah?is_from_webapp=1&sender_device=pc" class="social-link" target="_blank" title="تيك توك">TikTok</a>
+        <a href="https://www.snapchat.com/@taftirah?sender_web_id=b0520b02-4162-4b44-a3fe-74bdae40662e&device_type=desktop&is_copy_url=true" class="social-link" target="_blank" title="سناب شات">Snapchat</a>
+        <a href="https://x.com/Tuftirah?s=20" class="social-link" target="_blank" title="اكس">X</a>
       </div>
     </div>
     <div class="footer-col">
@@ -1317,12 +1312,6 @@
         <li><a href="#features">▸ مميزاتنا</a></li>
         <li><a href="#menu">▸ المنيو</a></li>
         <li><a href="#location">▸ فروعنا</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>تواصل معنا</h4>
-      <ul class="footer-links">
-        <li><a href="tel:0538071170">📞 0538071170</a></li>
       </ul>
     </div>
   </div>
